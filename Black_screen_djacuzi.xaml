@@ -1,0 +1,26 @@
+﻿<Window x:Class="Universcal_screen_control_for_GREMM.Black_screen_djacuzi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Universcal_screen_control_for_GREMM"
+        mc:Ignorable="d"
+        Opacity="1"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Black"
+        Title="Black_screen_djacuzi" Height="25" Width="2560">
+    <Grid>
+        <CheckBox x:Name="Topmost_check_on_off_owner_second" Visibility="Collapsed" Content="Поверх всех окон" Checked="Black_screen_CheckBox_Checked_second" Unchecked="Black_screen_CheckBox_Unchecked_second"/>
+        <Button x:Name="Black_screen_topmost_off_bt_owner_second" Click="Black_screen_topmost_off_bt_click_second" Visibility="Collapsed">Поверх всех окон ON</Button>
+        <Button x:Name="Black_screen_topmost_on_bt_owner_second" Click="Black_screen_topmost_on_bt_click_second" Visibility="Collapsed">Поверх всех окон OFF</Button>
+        <Button x:Name="Align_to_the_left_edge_and_width_owner_second" Click="Align_to_the_left_edge_and_width_bt_click_second" Visibility="Collapsed">Выровнять по левому краю и ширине</Button>
+        <Button x:Name="Change_resolution_to_panel_owner_second" Click="Change_resolution_to_panel_bt_click_second" Visibility="Collapsed">Ужать полотно до панели</Button>
+        <Button x:Name="Change_resolution_to_panel_full_owner_second" Click="Change_resolution_to_panel_full_bt_click_second" Visibility="Collapsed">Растянуть на весь экран</Button>
+        <Button x:Name="Active_navigation_drag_button_owner_second" Click="Active_navigation_drag_button_bt_click_second" Visibility="Collapsed">Активировать навигационную кнопку</Button>
+        <Button Visibility="Collapsed">Деактивировать навигационную кнопку</Button>
+        <Button Visibility="Collapsed">Закрыть окно полотна</Button>
+
+        <Rectangle x:Name="Rectangle_control_second" Opacity="1" Height="30" Fill="#FF0A0909" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown_second"  Width="141" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

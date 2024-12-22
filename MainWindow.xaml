@@ -1,0 +1,68 @@
+﻿<Window x:Class="Universcal_screen_control_for_GREMM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Universcal_screen_control_for_GREMM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="520" Width="800">
+    <Grid>
+        <StackPanel>
+            <GroupBox Header="Использование черного полотна">
+                <StackPanel>
+                    <GroupBox Header="Экран у бассейна (1600x840)">
+                        <StackPanel>
+                            <CheckBox x:Name="chechbox_activate_deactivate_panel" Content="Активация/Деактивация полотна" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="Black_screen_CheckBox_Checked_dubler" Unchecked="Black_screen_CheckBox_UnChecked_dubler" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Регулировка прозрачности полотна</TextBlock>
+                            <Slider x:Name="OpacitySlider" Minimum="0" Maximum="1" ValueChanged="OpacitySlider_ValueChanged" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Button Click="Align_to_the_left_edge_and_width_bt_click_dubler">Прикрепить и выровнять по панели</Button>
+                            <Button Click="Change_resolution_to_panel_bt_click_dubler">Ужать полотно до панели</Button>
+                            <Button Click="Change_resolution_to_panel_full_bt_click_dubler">Растянуть на весь экран</Button>
+                            <Button Click="Active_navigation_drag_button_bt_click_dubler">Активировать навигационную кнопку</Button>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Использование черного полотна для джакузи">
+                <StackPanel>
+                    <GroupBox Header="Экран у джакузи (2560x1536)">
+                        <StackPanel>
+                            <CheckBox x:Name="Chechbox_activate_deactivate_panel_djacuzi" Content="Активация/Деактивация полотна" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="Black_screen_djacuzi_CheckBox_Checked_dubler" Unchecked="Black_screen_djacuzi_CheckBox_UnChecked_dubler" />
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Регулировка прозрачности полотна</TextBlock>
+                            <Slider x:Name="OpacitySlider_djacuzi" Minimum="0" Maximum="1" ValueChanged="OpacitySlider_djacuzi_ValueChanged" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Button Click="Align_to_the_left_edge_and_width_bt_click_dubler_djacuzi">Прикрепить и выровнять по панели</Button>
+                            <Button Click="Change_resolution_to_panel_bt_click_dubler_djacuzi">Ужать полотно до панели</Button>
+                            <Button Click="Change_resolution_to_panel_full_bt_click_dubler_djacuzi">Растянуть на весь экран</Button>
+                            <Button Click="Active_navigation_drag_button_bt_click_dubler_djacuzi">Активировать навигационную кнопку</Button>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Управление расписанием парных" >
+                <StackPanel>
+                    <TextBlock x:Name="DateTextBlock" 
+                   FontSize="16" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   TextAlignment="Center">
+                    </TextBlock>
+                    <TextBlock x:Name="WeekTextBlock" 
+                   FontSize="16" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   TextAlignment="Center">
+                    </TextBlock>
+                    <TextBlock x:Name="TimeTextBlock" 
+                   FontSize="16" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   TextAlignment="Center">
+                    </TextBlock>
+                </StackPanel>
+            </GroupBox>
+            <Button Click="Close_all_window_bt_click" Margin="0,10,0,0" Width="700" Background="#FFB91B1B" BorderBrush="#FF07F979" Foreground="#FF46A016" >Закрыть все окна</Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
