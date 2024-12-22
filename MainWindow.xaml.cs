@@ -25,8 +25,8 @@ namespace Universcal_screen_control_for_GREMM
         public bool isActive_Sun = true;
         public bool isActive_Sat = true;
 
-        private DispatcherTimer TimerSheduler = new DispatcherTimer();
-        private DispatcherTimer TimerCheckTime = new DispatcherTimer();
+        private DispatcherTimer TimerSheduler = new DispatcherTimer(); // Таймер активации расписания
+        private DispatcherTimer TimerCheckTime = new DispatcherTimer(); // Таймер проверки времени
 
         public MainWindow()
         {
@@ -38,7 +38,7 @@ namespace Universcal_screen_control_for_GREMM
             InitializeTimers();
         }
 
-        private void InitializeTimers()
+        private void InitializeTimers() // Запуск двух таймеров
         {
             TimerSheduler.Interval = TimeSpan.FromSeconds(8);
             TimerSheduler.Tick += TimerSheduler_Tick;
@@ -49,32 +49,36 @@ namespace Universcal_screen_control_for_GREMM
             TimerCheckTime.Start();
         }
 
-        private void TimerSheduler_Tick(object sender, EventArgs e)
+        private void TimerSheduler_Tick(object sender, EventArgs e) // Тик на расписание
         {
             DisplayCurrentDateAndDay();
             WeekCycles_click();
         }
 
-        private void TimerCheckTime_Tick(object sender, EventArgs e)
+        private void TimerCheckTime_Tick(object sender, EventArgs e) // Тик на проверку активации полотна
         {
             Activate_Deactivate_black_screen();
             updatecheckboxstate();
         }
 
-        private void updatecheckboxstate()
+        private void updatecheckboxstate() // Проверка активации полотна
         {
             chechbox_activate_deactivate_panel.IsChecked = black_Screen.Topmost;
             Chechbox_activate_deactivate_panel_djacuzi.IsChecked = black_Screen_djacuzi.Topmost;
         }
 
-        public void Close_all_window_bt_click(object sender, EventArgs e)
+        public void Close_all_window_bt_click(object sender, EventArgs e) // Закрытие всех приложений
         {
             black_Screen.Close();
             black_Screen_djacuzi.Close();
             this.Close();
         }
 
-        private Dictionary<DayOfWeek, string> _customDayNames = new Dictionary<DayOfWeek, string>()
+        //
+        // Кастомные часы
+        //
+
+        private Dictionary<DayOfWeek, string> _customDayNames = new Dictionary<DayOfWeek, string>() // Форматирование дней
         {
             { DayOfWeek.Monday, "Mon" },
             { DayOfWeek.Tuesday, "Tue" },
@@ -85,7 +89,7 @@ namespace Universcal_screen_control_for_GREMM
             { DayOfWeek.Sunday, "Sun" }
         };
 
-        private void DisplayCurrentDateAndDay()
+        private void DisplayCurrentDateAndDay() // Отображение даты
         {
             DateTime currentDate = DateTime.Now;
             DayOfWeek currentDay = currentDate.DayOfWeek;
@@ -105,7 +109,7 @@ namespace Universcal_screen_control_for_GREMM
                 isActive_Mon = false;
                 isActive_Sun = true;
                 OpenFile("C:\\tasks\\Mon.bat");
-                MessageBox.Show("Понедельник");
+                //MessageBox.Show("Понедельник");
 
             }
 
@@ -114,7 +118,7 @@ namespace Universcal_screen_control_for_GREMM
                 isActive_Tue = false;
                 isActive_Mon = true;
                 OpenFile("C:\\tasks\\Tue.bat");
-                MessageBox.Show("Вторник");
+                //MessageBox.Show("Вторник");
 
             }
 
@@ -123,7 +127,7 @@ namespace Universcal_screen_control_for_GREMM
                 isActive_Wed = false;
                 isActive_Tue = true;
                 OpenFile("C:\\tasks\\Wed.bat");
-                MessageBox.Show("Среда");
+                //MessageBox.Show("Среда");
 
             }
 
@@ -132,7 +136,7 @@ namespace Universcal_screen_control_for_GREMM
                 isActive_Thu = false;
                 isActive_Wed = true;
                 OpenFile("C:\\tasks\\Thu.bat");
-                MessageBox.Show("Четверг");
+                //MessageBox.Show("Четверг");
 
             }
 
@@ -141,7 +145,7 @@ namespace Universcal_screen_control_for_GREMM
                 isActive_Fri = false;
                 isActive_Thu = true;
                 OpenFile("C:\\tasks\\Fri.bat");
-                MessageBox.Show("Пятница");
+                //MessageBox.Show("Пятница");
 
             }
 
@@ -150,7 +154,7 @@ namespace Universcal_screen_control_for_GREMM
                 isActive_Sat = false;
                 isActive_Fri = true;
                 OpenFile("C:\\tasks\\Sat.bat");
-                MessageBox.Show("Суббота");
+                //MessageBox.Show("Суббота");
 
             }
 
@@ -159,7 +163,7 @@ namespace Universcal_screen_control_for_GREMM
                 isActive_Sun = false;
                 isActive_Sat = true;
                 OpenFile("C:\\tasks\\Sun.bat");
-                MessageBox.Show("Воскресенье");
+                //MessageBox.Show("Воскресенье");
 
             }
         }
@@ -169,21 +173,28 @@ namespace Universcal_screen_control_for_GREMM
             if (TimeTextBlock.Text == "8:30")
             {
                 black_Screen.Black_screen_CheckBox_Unchecked(null, null);
+                OpenFile("C:\\tasks_a\\StopBlackScript.bat");
             }
 
             if (TimeTextBlock.Text == "8:31")
             {
                 black_Screen_djacuzi.Black_screen_CheckBox_Unchecked_second(null, null);
+                OpenFile("C:\\tasks_a\\StopBlackScript.bat");
+
             }
 
             if (TimeTextBlock.Text == "23:40")
             {
                 black_Screen.Black_screen_CheckBox_Checked(null, null);
+                OpenFile("C:\\tasks_a\\StartBlackScript.bat");
+
             }
 
             if (TimeTextBlock.Text == "23:41")
             {
                 black_Screen_djacuzi.Black_screen_CheckBox_Checked_second(null, null);
+                OpenFile("C:\\tasks_a\\StartBlackScript.bat");
+
             }
         }
 
