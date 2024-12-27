@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Diagnostics;
+using System.Windows.Media.Animation;
 
 namespace Universcal_screen_control_for_GREMM
 {
@@ -102,7 +103,7 @@ namespace Universcal_screen_control_for_GREMM
             TimeTextBlock.Text = formattedTime;
         }
 
-        private void WeekCycles_click()
+        private void WeekCycles_click() // Цикл расписания
         {
             if (WeekTextBlock.Text == "Mon" && isActive_Mon)
             {
@@ -168,7 +169,7 @@ namespace Universcal_screen_control_for_GREMM
             }
         }
 
-        public void Activate_Deactivate_black_screen()
+        public void Activate_Deactivate_black_screen() // Цикл активации, деактивации полотна
         {
             if (TimeTextBlock.Text == "8:30")
             {
@@ -198,7 +199,7 @@ namespace Universcal_screen_control_for_GREMM
             }
         }
 
-        private void OpenFile(string filePath)
+        private void OpenFile(string filePath) // открытие файла
         {
             try
             {
@@ -214,15 +215,63 @@ namespace Universcal_screen_control_for_GREMM
             }
         }
 
-        public void OpenBlackScreen()
+
+
+
+        ///////////////////// Открытие окон
+        public void OpenBlackScreen() // Открытие полотна для экрана бассейна
         {
             black_Screen.Show();
         }
 
-        public void OpenBlackScreen_djacuzi()
+        public void OpenBlackScreen_djacuzi() // открытие полотна для экрана джакузи
         {
             black_Screen_djacuzi.Show();
         }
+
+        ///////////////////// Анимация элементов
+
+        private void Animation_Visibility_Element()
+        {
+            DispatcherTimer Visibility_Element_Timer = new DispatcherTimer();
+            Visibility_Element_Timer.Interval = TimeSpan.FromSeconds(2);
+            Window1.BeginAnimation(UIElement.VisibilityProperty, null);
+        }
+
+        private void Animation_Opacity_Element(UIElement element)
+        {
+          // Создаем анимацию для изменения Opacity
+            DoubleAnimation animation = new DoubleAnimation
+            {
+                From = 1.0,
+                To = 0.0,
+                Duration = new Duration(TimeSpan.FromSeconds(1)) // Длительность анимации
+            };
+
+            animation.Completed += (s, args) =>
+            {
+                // Устанавливаем Visibility в Hidden после завершения анимации
+                if (element is FrameworkElement frameworkElement)
+                {
+                    frameworkElement.Visibility = Visibility.Hidden;
+                }
+            };
+
+            // Применяем анимацию к элементу
+            element.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+
+        ///////////////////// Дополнительные функции
+
+        private void Activate_new_Window2 (object sender, EventArgs e)
+        {
+            Animation_Opacity_Element(Window1);
+            
+        }
+
+
+        
+
         ///////////////////// Параллельное взаимодействие для экрана бассейн
 
         private void Open_black_screen_click(object sender, RoutedEventArgs e) // Активация полотна поверх всех окон
@@ -353,6 +402,11 @@ namespace Universcal_screen_control_for_GREMM
             {
                 black_Screen_djacuzi.Black_screen_CheckBox_Unchecked_second(sender, e);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
