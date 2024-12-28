@@ -1,0 +1,14 @@
+﻿<Window x:Class="Universcal_screen_control_for_GREMM.Switch_Screen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Universcal_screen_control_for_GREMM"
+        mc:Ignorable="d"
+        Title="Switch_Screen" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Button Click="MessegeBoxShow_Active" >sdsd</Button>
+        </StackPanel>
+    </Grid>
+</Window>

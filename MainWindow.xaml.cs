@@ -15,6 +15,7 @@ namespace Universcal_screen_control_for_GREMM
     {
         public Black_screen black_Screen = new Black_screen();
         public Black_screen_djacuzi black_Screen_djacuzi = new Black_screen_djacuzi();
+        public Switch_Screen switch_Screen = new Switch_Screen();
 
         private const int maxGarbage = 99999;
 
@@ -230,6 +231,11 @@ namespace Universcal_screen_control_for_GREMM
             black_Screen_djacuzi.Show();
         }
 
+        public void Active_Switch_screen(object sender, RoutedEventArgs e)
+        {
+            switch_Screen.Show();
+        }
+
         ///////////////////// Анимация элементов
 
         private void Animation_Visibility_Element()
@@ -299,7 +305,6 @@ namespace Universcal_screen_control_for_GREMM
         {
             Animation_Opacity_Element(The_Marketing_Window);
             Undo_Animation_Opacity_Element(Universal_Main_Window);
-
         }
 
 
