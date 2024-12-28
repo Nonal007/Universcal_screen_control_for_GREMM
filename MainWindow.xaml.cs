@@ -37,6 +37,7 @@ namespace Universcal_screen_control_for_GREMM
             DisplayCurrentDateAndDay();
             //WeekCycles_click();
             InitializeTimers();
+            Avtive_Universal_Screen_Contol(null, null);
         }
 
         private void InitializeTimers() // Запуск двух таймеров
@@ -235,13 +236,19 @@ namespace Universcal_screen_control_for_GREMM
         {
             DispatcherTimer Visibility_Element_Timer = new DispatcherTimer();
             Visibility_Element_Timer.Interval = TimeSpan.FromSeconds(2);
-            Window1.BeginAnimation(UIElement.VisibilityProperty, null);
+            Universal_Main_Window.BeginAnimation(UIElement.VisibilityProperty, null);
         }
 
-        private void Animation_Opacity_Element(UIElement element)
+        private void Animation_Opacity_Element(UIElement element) // Скрытие окна
         {
-          // Создаем анимацию для изменения Opacity
-            DoubleAnimation animation = new DoubleAnimation
+            if (element.Opacity == 0) // Проверка
+            {
+                return;
+            }
+
+
+
+            DoubleAnimation animation = new DoubleAnimation // Анимация изменения opacity
             {
                 From = 1.0,
                 To = 0.0,
@@ -261,16 +268,42 @@ namespace Universcal_screen_control_for_GREMM
             element.BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
+        private void Undo_Animation_Opacity_Element(UIElement element) // Возвращение окна в исходное состояние
+        {
+
+            if (element.Opacity == 1) // Проверка
+            {
+                return;
+            }
+
+            element.Visibility = Visibility.Visible; // Вывод скрытых элементов
+
+            DoubleAnimation animation = new DoubleAnimation // Анимация
+            {
+                From = 0.0,
+                To = 1.0,
+                Duration = new Duration(TimeSpan.FromSeconds(1)) // Таймер анимации
+            };
+            element.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+
         ///////////////////// Дополнительные функции
 
-        private void Activate_new_Window2 (object sender, EventArgs e)
+        private void Active_Marketing_Window(object sender, EventArgs e) // Активация окна маркетинга
         {
-            Animation_Opacity_Element(Window1);
-            
+            Animation_Opacity_Element(Universal_Main_Window);
+            Undo_Animation_Opacity_Element(The_Marketing_Window);
+        }
+
+        private void Avtive_Universal_Screen_Contol(object sender, EventArgs e) // Активация главного окна
+        {
+            Animation_Opacity_Element(The_Marketing_Window);
+            Undo_Animation_Opacity_Element(Universal_Main_Window);
+
         }
 
 
-        
+
 
         ///////////////////// Параллельное взаимодействие для экрана бассейн
 

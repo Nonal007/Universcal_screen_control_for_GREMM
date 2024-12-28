@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Universcal_screen_control_for_GREMM"
         mc:Ignorable="d"
-        Title="MainWindow" Height="530" Width="800">
+        Title="Universal_Screen_control" Height="560" Width="800">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -14,7 +14,7 @@
 
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Row="0" x:Name="Window1" Opacity="1" Visibility="Visible" >
+        <DockPanel Grid.Row="0" x:Name="Universal_Main_Window" Opacity="1" Visibility="Visible" >
             <StackPanel>
                 <GroupBox Header="Использование черного полотна">
                     <StackPanel>
@@ -73,15 +73,16 @@
             </StackPanel>
         </DockPanel>
 
-        <DockPanel Grid.Row="0" x:Name="Window2" Opacity="1" Visibility="Hidden" >
+        <DockPanel Grid.Row="0" x:Name="The_Marketing_Window" Opacity="1" Visibility="Hidden" >
             <StackPanel>
-                <Button>sds</Button>
+                <Button>Вывод окна маркетинга</Button>
             </StackPanel>
         </DockPanel>
         
         <DockPanel Grid.Row="1" >
             <StackPanel>
-                <Button Click="Activate_new_Window2" >Активация следующего окна</Button>
+                <Button Click="Active_Marketing_Window" Width="600" >Активировать окно маркетинга</Button>
+                <Button Click="Avtive_Universal_Screen_Contol" Width="600" >Активировать окно главного меню</Button>
             </StackPanel>
         </DockPanel>
     </Grid>
