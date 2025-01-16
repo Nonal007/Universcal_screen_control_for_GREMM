@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Universcal_screen_control_for_GREMM"
         mc:Ignorable="d"
-        Title="Universal_Screen_control" Height="560" Width="800">
+        Title="Universal_Screen_control" Height="570" Width="800">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -74,9 +74,24 @@
         </DockPanel>
 
         <DockPanel Grid.Row="0" x:Name="The_Marketing_Window" Opacity="1" Visibility="Hidden" >
-            <StackPanel>
-                <Button>Вывод окна маркетинга</Button>
-            </StackPanel>
+            <GroupBox Header="Окно маркетинга" >
+                <StackPanel>
+                    <Button>Вывод окна маркетинга</Button>
+                    <GroupBox Header="Экран у бассейна" >
+                        <StackPanel>
+                            <Button Click="Activation_screen_swimming_pool_bt_click">Активировать экран у бассейна</Button>
+                            <Button Click="Deactivation_screen_swimming_pool_bt_click">Деактивировать экран у бассейна</Button>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Экран у джакузи" >
+                        <StackPanel>
+                            <Button Click="Activation_screen_djacuzi_bt_click">Активировать экран у джакузи</Button>
+                            <Button Click="Deactivation_screen_djacuzi_bt_click">Деактивировать экран у бассейна</Button>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+
+            </GroupBox>
         </DockPanel>
         
         <DockPanel Grid.Row="1" >

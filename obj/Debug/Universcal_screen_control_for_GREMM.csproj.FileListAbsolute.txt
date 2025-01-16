@@ -38,3 +38,5 @@ C:\Users\IT-D\Documents\GitHub\Universcal_screen_control_for_GREMM\obj\Debug\Uni
 C:\Users\IT-D\Documents\GitHub\Universcal_screen_control_for_GREMM\obj\Debug\Universcal_screen_control_for_GREMM.pdb
 C:\Users\IT-D\Documents\GitHub\Universcal_screen_control_for_GREMM\obj\Debug\Switch_Screen.g.cs
 C:\Users\IT-D\Documents\GitHub\Universcal_screen_control_for_GREMM\obj\Debug\Switch_Screen.baml
+C:\Users\IT-D\Documents\GitHub\Universcal_screen_control_for_GREMM\obj\Debug\Switch_Screen_djacuzi.g.cs
+C:\Users\IT-D\Documents\GitHub\Universcal_screen_control_for_GREMM\obj\Debug\Switch_Screen_djacuzi.baml

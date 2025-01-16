@@ -16,6 +16,7 @@ namespace Universcal_screen_control_for_GREMM
         public Black_screen black_Screen = new Black_screen();
         public Black_screen_djacuzi black_Screen_djacuzi = new Black_screen_djacuzi();
         public Switch_Screen switch_Screen = new Switch_Screen();
+        public Switch_Screen_djacuzi switch_Screen_Djacuzi = new Switch_Screen_djacuzi();
 
         private const int maxGarbage = 99999;
 
@@ -176,27 +177,27 @@ namespace Universcal_screen_control_for_GREMM
             if (TimeTextBlock.Text == "8:30")
             {
                 black_Screen.Black_screen_CheckBox_Unchecked(null, null);
-                OpenFile("C:\\tasks_a\\StopBlackScript.bat");
+                //OpenFile("C:\\tasks_a\\StopBlackScript.bat");
             }
 
             if (TimeTextBlock.Text == "8:31")
             {
                 black_Screen_djacuzi.Black_screen_CheckBox_Unchecked_second(null, null);
-                OpenFile("C:\\tasks_a\\StopBlackScript.bat");
+                //OpenFile("C:\\tasks_a\\StopBlackScript.bat");
 
             }
 
             if (TimeTextBlock.Text == "23:40")
             {
                 black_Screen.Black_screen_CheckBox_Checked(null, null);
-                OpenFile("C:\\tasks_a\\StartBlackScript.bat");
+                //OpenFile("C:\\tasks_a\\StartBlackScript.bat");
 
             }
 
             if (TimeTextBlock.Text == "23:41")
             {
                 black_Screen_djacuzi.Black_screen_CheckBox_Checked_second(null, null);
-                OpenFile("C:\\tasks_a\\StartBlackScript.bat");
+                //OpenFile("C:\\tasks_a\\StartBlackScript.bat");
 
             }
         }
@@ -308,6 +309,34 @@ namespace Universcal_screen_control_for_GREMM
         }
 
 
+        ///////////////////// Раздел поля маркетинга
+        
+        public void Activation_screen_swimming_pool_bt_click (object sender, EventArgs e) // Активировать экран у бассейна
+        {
+            switch_Screen = new Switch_Screen(); // Создаем новый экземпляр окна
+            switch_Screen.Show();
+        }
+
+        public void Deactivation_screen_swimming_pool_bt_click(object sender, EventArgs e) // Деактивировать экран у бассейна
+        {
+            //if (switch_Screen != null)
+            //{
+            //    switch_Screen.Screen_swiming_pool_close_bt_click(null, null);
+            //    switch_Screen = null; // Устанавливаем switch_Screen в null после закрытия
+            //}
+            switch_Screen.Close();
+        }
+
+        public void Activation_screen_djacuzi_bt_click (Object sender, EventArgs e) // Активация экрана у джакузи
+        {
+            switch_Screen_Djacuzi = new Switch_Screen_djacuzi();
+            switch_Screen_Djacuzi.Show();
+        }
+
+        public void Deactivation_screen_djacuzi_bt_click(Object sender, EventArgs e) // Деактивация экрана у джакузи
+        {
+            switch_Screen_Djacuzi.Close();
+        }
 
 
         ///////////////////// Параллельное взаимодействие для экрана бассейн

@@ -25,6 +25,7 @@ namespace Universcal_screen_control_for_GREMM
         {
             InitializeComponent();
             MoveWindowToSecondScreen();
+            //this.Topmost = true;
         }
 
         private void MoveWindowToSecondScreen()
@@ -56,6 +57,12 @@ namespace Universcal_screen_control_for_GREMM
         {
             System.Windows.Forms.MessageBox.Show("Второй экран не найден.");
         }
+
+        public void Screen_swiming_pool_close_bt_click (object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
     }
 }

@@ -68,6 +68,9 @@
     <Compile Include="Switch_Screen.xaml.cs">
       <DependentUpon>Switch_Screen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Switch_Screen_djacuzi.xaml.cs">
+      <DependentUpon>Switch_Screen_djacuzi.xaml</DependentUpon>
+    </Compile>
     <Page Include="Black_screen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Switch_Screen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Switch_Screen_djacuzi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
