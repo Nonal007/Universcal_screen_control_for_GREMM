@@ -5,6 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Universcal_screen_control_for_GREMM"
         mc:Ignorable="d"
+                        WindowStyle="None"
+        AllowsTransparency="True"
+        Opacity="1"
+        Background="Black"
         Title="Switch_Screen" Height="450" Width="800">
     <Grid>
         <DockPanel>
