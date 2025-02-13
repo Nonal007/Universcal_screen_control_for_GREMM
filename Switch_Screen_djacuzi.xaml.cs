@@ -24,29 +24,29 @@ namespace Universcal_screen_control_for_GREMM
         public Switch_Screen_djacuzi()
         {
             InitializeComponent();
-            MoveToThirdscreen();
+            MoveToSecondScreen();
         }
 
-        private void MoveToThirdscreen()
+        private void MoveToSecondScreen()
         {
             var screens = Screen.AllScreens;
 
             // Проверяем, есть ли второй экран
-            if (screens.Length > 1)
+            if (screens.Length > 0)
             {
                 // Получаем второй экран
-                var thirdScreen = screens[2];
+                var secondScreen = screens[0];
 
                 // Устанавливаем размер окна
-                this.Width = 1024;
-                this.Height = 768;
+                this.Width = 1680;
+                this.Height = 1050;
 
                 // Устанавливаем позицию окна на втором экране
-                this.Left = thirdScreen.WorkingArea.Left;
-                this.Top = thirdScreen.WorkingArea.Top;
-
+                this.Left = secondScreen.WorkingArea.Left;
+                this.Top = secondScreen.WorkingArea.Top;
             }
-
         }
+
     }
 }
+

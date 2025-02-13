@@ -89,6 +89,11 @@
                             <Button Click="Deactivation_screen_djacuzi_bt_click">Деактивировать экран у бассейна</Button>
                         </StackPanel>
                     </GroupBox>
+                    <GroupBox Header="Функции">
+                        <StackPanel>
+                            <Button>ff</Button>
+                        </StackPanel>
+                    </GroupBox>
                 </StackPanel>
 
             </GroupBox>
@@ -96,7 +101,7 @@
         
         <DockPanel Grid.Row="1" >
             <StackPanel>
-                <Button Click="Active_Switch_screen" >Включить тестовое окно</Button>
+                <!--<Button Click="Active_Switch_screen" >Включить тестовое окно</Button>-->
                 <Button Click="Active_Marketing_Window" Width="600" >Активировать окно маркетинга</Button>
                 <Button Click="Avtive_Universal_Screen_Contol" Width="600" >Активировать окно главного меню</Button>
             </StackPanel>

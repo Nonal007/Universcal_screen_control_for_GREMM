@@ -8,13 +8,15 @@
                         WindowStyle="None"
         AllowsTransparency="True"
         Opacity="1"
-        Background="Black"
-        Title="Switch_Screen" Height="450" Width="800">
+        Background="Purple"
+        Title="Switch_Screen" Height="900" Width="1600">
     <Grid>
         <DockPanel>
             <StackPanel>
-                <Button Click="MessegeBoxShow_Active" >sdsd</Button>
+                <Button Click="MessegeBoxShow_Active" >Экран у бассейна 1600x900</Button>
                 <Button  x:Name="Screen_swiming_pool_close_name" Click="Screen_swiming_pool_close_bt_click" >Закрыть окно</Button>
+                <MediaElement Name="mediaElement" Width="640" Height="372" LoadedBehavior="Manual"/>
+                <Button Click="TuePlayVIdeo_parnie_click" >Запустиить промт</Button>
             </StackPanel>
         </DockPanel>
     </Grid>

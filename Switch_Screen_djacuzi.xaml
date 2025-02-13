@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Universcal_screen_control_for_GREMM"
         mc:Ignorable="d"
-        Title="Switch_Screen_djacuzi" Height="450" Width="800">
+                 WindowStyle="None"
+                    AllowsTransparency="True"
+                     Opacity="1"
+                         Background="Purple"
+        Title="Switch_Screen_djacuzi" Height="1050" Width="1680">
     <Grid>
         <DockPanel>
             <StackPanel>
-                <Button>Тесто</Button>
+                <Button>Экран джакузи 1680x1050</Button>
             </StackPanel>
         </DockPanel>
     </Grid>

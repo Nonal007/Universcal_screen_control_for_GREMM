@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 using System.Drawing; // Добавлено для использования Rectangle
 
 namespace Universcal_screen_control_for_GREMM
@@ -24,43 +25,54 @@ namespace Universcal_screen_control_for_GREMM
         public Switch_Screen()
         {
             InitializeComponent();
-            MoveWindowToSecondScreen();
-            //this.Topmost = true;
+            MoveWindowToFirstScreen();
+            mediaElement.MediaEnded += MediaElement_MediaEnded; // Подписка на событие
         }
 
-        private void MoveWindowToSecondScreen()
+        private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            mediaElement.Position = TimeSpan.Zero; // Сбросить позицию
+            mediaElement.Play(); // Воспроизведение заново
+        }
+
+        private void MoveWindowToFirstScreen()  // Перемещение экрана
         {
             // Получаем все доступные экраны
             var screens = Screen.AllScreens;
 
-            // Проверяем, есть ли второй экран
+            // Проверяем, есть ли хотя бы один экран
             if (screens.Length > 1)
             {
-                // Получаем второй экран
-                var secondScreen = screens[1];
+                // Получаем первый экран
+                var firstScreen = screens[1];
 
                 // Устанавливаем размер окна
                 this.Width = 1600;
                 this.Height = 900;
 
-                // Устанавливаем позицию окна на втором экране
-                this.Left = secondScreen.WorkingArea.Left;
-                this.Top = secondScreen.WorkingArea.Top;
+                // Устанавливаем позицию окна на первом экране
+                this.Left = firstScreen.WorkingArea.Left;
+                this.Top = firstScreen.WorkingArea.Top;
             }
-            //else
-            //{
-            //    MessageBox.Show("Второй экран не найден.");
-            //}
         }
 
-        private void MessegeBoxShow_Active(object sender, EventArgs e)
+        private void MessegeBoxShow_Active(object sender, EventArgs e) // Тестовая кнопка
         {
             System.Windows.Forms.MessageBox.Show("Второй экран не найден.");
         }
 
-        public void Screen_swiming_pool_close_bt_click (object sender, EventArgs e)
+        public void Screen_swiming_pool_close_bt_click(object sender, EventArgs e) // Закрытие окна
         {
             this.Close();
+        }
+
+        /// Расписание промтов
+        public void TuePlayVIdeo_parnie_click(object sender, RoutedEventArgs e) // Вторник
+        {
+            string videoPath = @"C:\pp\Tue.mp4"; // путь к файлу
+            mediaElement.Source = new Uri(videoPath);
+            mediaElement.Play(); // Воспроизводим видео
+
         }
 
 
