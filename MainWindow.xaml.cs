@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Diagnostics;
 using System.Windows.Media.Animation;
+//using System.Windows.Forms;
 
 namespace Universcal_screen_control_for_GREMM
 {
@@ -75,6 +76,8 @@ namespace Universcal_screen_control_for_GREMM
         {
             black_Screen.Close();
             black_Screen_djacuzi.Close();
+            switch_Screen.Close();
+            switch_Screen_Djacuzi.Close();
             this.Close();
         }
 
@@ -294,7 +297,7 @@ namespace Universcal_screen_control_for_GREMM
             element.BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
-        ///////////////////// Дополнительные функции
+        ///////////////////// Дополнительные функции /////////
 
         private void Active_Marketing_Window(object sender, EventArgs e) // Активация окна маркетинга
         {
@@ -309,7 +312,10 @@ namespace Universcal_screen_control_for_GREMM
         }
 
 
-        ///////////////////// Раздел поля маркетинга
+        ///////////////////// Раздел поля маркетинга ///////////
+        /// 
+
+        /// Бассейн
         
         public void Activation_screen_swimming_pool_bt_click (object sender, EventArgs e) // Активировать экран у бассейна
         {
@@ -327,6 +333,40 @@ namespace Universcal_screen_control_for_GREMM
             switch_Screen.Close();
         }
 
+                // Активация рекламных роликов
+        public void Active_screen_switch_test_promt1(object sender, EventArgs e) // Тестовый
+        {
+            switch_Screen.PlayVideo(@"C:\pp\Tue.mp4");
+        }
+
+        public void Active_screen_switch_test_promt2(object sender, EventArgs e) // Тестовый
+        {
+            switch_Screen.PlayVideo(@"C:\pp\Mon.mp4");
+        }
+
+        public void Active_screen_switch_Zel1(object sender, EventArgs e) // Зелинский 1
+        {
+            switch_Screen.PlayVideo(@"C:\promt\Zel1.mp4");
+        }
+
+        public void Active_screen_switch_Zel2(object sender, EventArgs e) // Зелинский 2
+        {
+            switch_Screen.PlayVideo(@"C:\promt\Zel2.mp4");
+        }
+
+        public void Active_screen_switch_Zel3(object sender, EventArgs e) // Зелинский 2
+        {
+            switch_Screen.PlayVideo(@"C:\promt\Zel3.mp4");
+        }
+
+        public void Active_scree_switch_Chestnaya_r(object sender, EventArgs e) // Честная рыба
+        {
+            switch_Screen.PlayVideo(@"C:\promt\Chestnaya_r.mp4");
+        }
+
+
+
+        /// Джакузи
         public void Activation_screen_djacuzi_bt_click (Object sender, EventArgs e) // Активация экрана у джакузи
         {
             switch_Screen_Djacuzi = new Switch_Screen_djacuzi();
@@ -338,8 +378,40 @@ namespace Universcal_screen_control_for_GREMM
             switch_Screen_Djacuzi.Close();
         }
 
+                // Активация рекламных роликов экрана у дажкузи
 
-        ///////////////////// Параллельное взаимодействие для экрана бассейн
+        public void Active_screen_switch_djacuzi_test_promt1(object sender, EventArgs e) // Тестовый
+        {
+            switch_Screen_Djacuzi.PlayVideo(@"C:\pp\Mon.mp4");
+        }
+
+        public void Active_screen_switch_djacuzi_test_promt2(object sender, EventArgs e) // Тестовый
+        {
+            switch_Screen_Djacuzi.PlayVideo(@"C:\pp\Fri.mp4");
+        }
+
+        public void Active_screen_switch_djacuzi_Zel1(object sender, EventArgs e) // Зелинский 1
+        {
+            switch_Screen_Djacuzi.PlayVideo(@"C:\promt\Zel1.mp4");
+        }
+
+        public void Active_screen_switch_djacuzi_Zel2(object sender, EventArgs e) // Зелинский 2
+        {
+            switch_Screen_Djacuzi.PlayVideo(@"C:\promt\Zel2.mp4");
+        }
+
+        public void Active_screen_switch_djacuzi_Zel3(object sender, EventArgs e) // Зелинский 2
+        {
+            switch_Screen_Djacuzi.PlayVideo(@"C:\promt\Zel3.mp4");
+        }
+
+        public void Active_scree_switch_djacuzi_Chestnaya_r(object sender, EventArgs e) // Честная рыба
+        {
+            switch_Screen_Djacuzi.PlayVideo(@"C:\promt\Chestnaya_r.mp4");
+        }
+
+
+        ///////////////////// Параллельное взаимодействие для экрана бассейн ////////////
 
         private void Open_black_screen_click(object sender, RoutedEventArgs e) // Активация полотна поверх всех окон
         {

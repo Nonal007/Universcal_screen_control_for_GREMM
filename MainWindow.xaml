@@ -81,12 +81,27 @@
                         <StackPanel>
                             <Button Click="Activation_screen_swimming_pool_bt_click">Активировать экран у бассейна</Button>
                             <Button Click="Deactivation_screen_swimming_pool_bt_click">Деактивировать экран у бассейна</Button>
+                            <Button Click="Active_screen_switch_test_promt1" >Активировать тестовый промт 1</Button>
+                            <Button Click="Active_screen_switch_test_promt2" >Активировать тестовый промт 2</Button>
+                            <Button Click="Active_screen_switch_Zel1" >Зелинский 1</Button>
+                            <Button Click="Active_screen_switch_Zel2" >Зелинский 2</Button>
+                            <Button Click="Active_screen_switch_Zel3" >Зелинский 3</Button>
+                            <Button Click="Active_scree_switch_Chestnaya_r" >Честная рыба</Button>
+
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="Экран у джакузи" >
                         <StackPanel>
                             <Button Click="Activation_screen_djacuzi_bt_click">Активировать экран у джакузи</Button>
                             <Button Click="Deactivation_screen_djacuzi_bt_click">Деактивировать экран у бассейна</Button>
+                            <Button Click="Active_screen_switch_djacuzi_test_promt1" >Активировать тестовый промт 1</Button>
+                            <Button Click="Active_screen_switch_djacuzi_test_promt2" >Активировать тестовый промт 2</Button>
+                            <Button Click="Active_screen_switch_djacuzi_Zel1" >Зелинский 1</Button>
+                            <Button Click="Active_screen_switch_djacuzi_Zel2" >Зелинский 2</Button>
+                            <Button Click="Active_screen_switch_djacuzi_Zel3" >Зелинский 3</Button>
+                            <Button Click="Active_scree_switch_djacuzi_Chestnaya_r" >Честная рыба</Button>
+
+
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="Функции">

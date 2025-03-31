@@ -56,6 +56,12 @@ namespace Universcal_screen_control_for_GREMM
             }
         }
 
+        public void PlayVideo(string path) // Включение видео-рекламы
+        {
+            mediaElement.Source = new Uri(path);
+            mediaElement.Play();
+        }
+
         private void MessegeBoxShow_Active(object sender, EventArgs e) // Тестовая кнопка
         {
             System.Windows.Forms.MessageBox.Show("Второй экран не найден.");

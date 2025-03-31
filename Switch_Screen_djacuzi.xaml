@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Universcal_screen_control_for_GREMM"
         mc:Ignorable="d"
-                 WindowStyle="None"
-                    AllowsTransparency="True"
-                     Opacity="1"
-                         Background="Purple"
+                        WindowStyle="None"
+        AllowsTransparency="True"
+        Opacity="1"
+        Background="Purple"
         Title="Switch_Screen_djacuzi" Height="1050" Width="1680">
     <Grid>
         <DockPanel>
             <StackPanel>
                 <Button>Экран джакузи 1680x1050</Button>
+                <Button Click="MessegeBoxShow_Active" >Экран у бассейна 1600x900 (реальное 2560x1536)</Button>
+                <Button  x:Name="Screen_swiming_pool_close_name" Click="Screen_swiming_pool_close_bt_click" >Закрыть окно</Button>
+                <MediaElement Name="mediaElement" Width="1200" Height="500" LoadedBehavior="Manual"/>
+                <Button Click="TuePlayVIdeo_parnie_click">Запустиить промт</Button>
             </StackPanel>
         </DockPanel>
     </Grid>
