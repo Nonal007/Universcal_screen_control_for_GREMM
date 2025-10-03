@@ -12,13 +12,16 @@
         Title="Switch_Screen" Height="600" Width="640">
     <Grid>
         <DockPanel>
-            <StackPanel>
+            
+            <StackPanel x:Name="MediaElement640600" Opacity="1">
                 <MediaElement Name="mediaElement" Width="640" Height="600" LoadedBehavior="Manual"/>
-                <Button>Экран бассейна 1600x900</Button>
+                <Rectangle x:Name="DragMove_bt" Height="30" Fill="LightGray" Margin="0,-15,0,0" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" Width="141" HorizontalAlignment="Center"/>
+                <!--<Button>Экран бассейна 1600x900</Button>
                 <Button Click="MessegeBoxShow_Active" >Экран у бассейна 1600x900 (реальное 1600x840)</Button>
                 <Button  x:Name="Screen_swiming_pool_close_name" Click="Screen_swiming_pool_close_bt_click" Visibility="Hidden" >Закрыть окно</Button>
-                <Button Click="TuePlayVIdeo_parnie_click">Запустиить промт</Button>
+                <Button Click="TuePlayVIdeo_parnie_click">Запустиить промт</Button>-->
             </StackPanel>
+            
         </DockPanel>
     </Grid>
 </Window>

@@ -81,6 +81,14 @@ namespace Universcal_screen_control_for_GREMM
 
         }
 
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) // Перемещение окна
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove(); // Перемещение окна
+            }
+        }
+
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             try

@@ -141,7 +141,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Mon = false;
                 isActive_Sun = true;
-                OpenFile("C:\\tasks\\Mon.bat");
+               // OpenFile("C:\\tasks\\Mon.bat");
                 //MessageBox.Show("Понедельник");
 
             }
@@ -150,7 +150,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Tue = false;
                 isActive_Mon = true;
-                OpenFile("C:\\tasks\\Tue.bat");
+               // OpenFile("C:\\tasks\\Tue.bat");
                 //MessageBox.Show("Вторник");
 
             }
@@ -159,7 +159,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Wed = false;
                 isActive_Tue = true;
-                OpenFile("C:\\tasks\\Wed.bat");
+                //OpenFile("C:\\tasks\\Wed.bat");
                 //MessageBox.Show("Среда");
 
             }
@@ -168,7 +168,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Thu = false;
                 isActive_Wed = true;
-                OpenFile("C:\\tasks\\Thu.bat");
+                //OpenFile("C:\\tasks\\Thu.bat");
                 //MessageBox.Show("Четверг");
 
             }
@@ -177,7 +177,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Fri = false;
                 isActive_Thu = true;
-                OpenFile("C:\\tasks\\Fri.bat");
+               // OpenFile("C:\\tasks\\Fri.bat");
                 //MessageBox.Show("Пятница");
 
             }
@@ -186,7 +186,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Sat = false;
                 isActive_Fri = true;
-                OpenFile("C:\\tasks\\Sat.bat");
+                //OpenFile("C:\\tasks\\Sat.bat");
                 //MessageBox.Show("Суббота");
 
             }
@@ -195,7 +195,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Sun = false;
                 isActive_Sat = true;
-                OpenFile("C:\\tasks\\Sun.bat");
+                //OpenFile("C:\\tasks\\Sun.bat");
                 //MessageBox.Show("Воскресенье");
 
             }
@@ -253,18 +253,18 @@ namespace Universcal_screen_control_for_GREMM
         ///////////////////// Открытие окон
         public void OpenBlackScreen() // Открытие полотна для экрана бассейна
         {
-            black_Screen.Show();
+           // black_Screen.Show();
         }
 
         public void OpenBlackScreen_djacuzi() // открытие полотна для экрана джакузи
         {
-            black_Screen_djacuzi.Show();
+           // black_Screen_djacuzi.Show();
         }
 
-        public void Active_Switch_screen(object sender, RoutedEventArgs e)
-        {
-            switch_Screen.Show();
-        }
+        //public void Active_Switch_screen(object sender, RoutedEventArgs e)
+        //{
+        //    switch_Screen.Show();
+        //}
 
         ///////////////////// Анимация элементов
 
@@ -346,6 +346,27 @@ namespace Universcal_screen_control_for_GREMM
             {
                 switch_Screen.Activate();
             }
+        }
+
+        public void Smoothly_hide_the_window_swimming_pool_bt_click(object sender, EventArgs e) // Скрытие окна бассейн
+        {
+            Animation_Opacity_Element(switch_Screen);
+
+        }
+
+        public void Smoothly_open_the_window_swimming_pool_bt_click(Object sender, EventArgs e) // Раскрытие окна бассейн
+        {
+            Undo_Animation_Opacity_Element(switch_Screen);
+
+        }
+
+        public void Activation_drag_button_swimming_pool_bt_click(object sender, EventArgs e) // Вернуть кнеопку навигации
+        {
+            switch_Screen.DragMove_bt.Opacity = 1;
+        }
+        public void Deactivation_drag_button_swimming_pool_bt_click(Object sender, EventArgs e) // Убрать кнопку навигации
+        {
+            switch_Screen.DragMove_bt.Opacity = 0;
         }
 
         public void Deactivation_screen_swimming_pool_bt_click(object sender, EventArgs e) // Деактивировать экран у бассейна
