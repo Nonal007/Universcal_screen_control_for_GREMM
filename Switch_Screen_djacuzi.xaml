@@ -16,7 +16,7 @@
                 <Button>Экран джакузи 1680x1050</Button>
                 <Button Click="MessegeBoxShow_Active" >Экран у бассейна 1600x900 (реальное 2560x1536)</Button>
                 <Button  x:Name="Screen_swiming_pool_close_name" Click="Screen_swiming_pool_close_bt_click" >Закрыть окно</Button>
-                <MediaElement Name="mediaElement" Width="1200" Height="500" LoadedBehavior="Manual"/>
+                <MediaElement Name="mediaElement" Width="1680" Height="800" LoadedBehavior="Manual"/>
                 <Button Click="TuePlayVIdeo_parnie_click">Запустиить промт</Button>
             </StackPanel>
         </DockPanel>

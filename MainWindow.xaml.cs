@@ -74,11 +74,37 @@ namespace Universcal_screen_control_for_GREMM
 
         public void Close_all_window_bt_click(object sender, EventArgs e) // Закрытие всех приложений
         {
+            base.OnClosed(e);
+
+            // 1) Отписаться и остановить оба таймера
+            TimerSheduler.Tick -= TimerSheduler_Tick;
+            TimerSheduler.Stop();
+
+            TimerCheckTime.Tick -= TimerCheckTime_Tick;
+            TimerCheckTime.Stop();
             black_Screen.Close();
             black_Screen_djacuzi.Close();
             switch_Screen.Close();
             switch_Screen_Djacuzi.Close();
             this.Close();
+
+            base.OnClosed(e);
+
+            // Таймеры
+            TimerSheduler.Tick -= TimerSheduler_Tick;
+            TimerSheduler.Stop();
+
+            TimerCheckTime.Tick -= TimerCheckTime_Tick;
+            TimerCheckTime.Stop();
+
+            // Окна-полотна и плееры
+            try { black_Screen?.Close(); } catch { }
+            try { black_Screen_djacuzi?.Close(); } catch { }
+            try { switch_Screen?.Close(); } catch { }
+            try { switch_Screen_Djacuzi?.Close(); } catch { }
+
+            // На всякий случай полностью гасим приложение
+            Application.Current.Shutdown();
         }
 
         //
@@ -242,58 +268,47 @@ namespace Universcal_screen_control_for_GREMM
 
         ///////////////////// Анимация элементов
 
-        private void Animation_Visibility_Element()
+
+        private void Animation_Opacity_Element(UIElement element)
         {
-            DispatcherTimer Visibility_Element_Timer = new DispatcherTimer();
-            Visibility_Element_Timer.Interval = TimeSpan.FromSeconds(2);
-            Universal_Main_Window.BeginAnimation(UIElement.VisibilityProperty, null);
-        }
+            if (element == null) return;
+            if (element.Opacity == 0) return;
 
-        private void Animation_Opacity_Element(UIElement element) // Скрытие окна
-        {
-            if (element.Opacity == 0) // Проверка
-            {
-                return;
-            }
+            element.BeginAnimation(UIElement.OpacityProperty, null); // сброс
+            element.Opacity = 1.0;
 
-
-
-            DoubleAnimation animation = new DoubleAnimation // Анимация изменения opacity
+            var animation = new DoubleAnimation
             {
                 From = 1.0,
                 To = 0.0,
-                Duration = new Duration(TimeSpan.FromSeconds(1)) // Длительность анимации
+                Duration = TimeSpan.FromSeconds(1),
+                FillBehavior = FillBehavior.Stop
             };
-
-            animation.Completed += (s, args) =>
+            animation.Completed += (_, __) =>
             {
-                // Устанавливаем Visibility в Hidden после завершения анимации
-                if (element is FrameworkElement frameworkElement)
-                {
-                    frameworkElement.Visibility = Visibility.Hidden;
-                }
+                element.Opacity = 0.0;
+                if (element is FrameworkElement fe) fe.Visibility = Visibility.Hidden;
             };
-
-            // Применяем анимацию к элементу
             element.BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
-        private void Undo_Animation_Opacity_Element(UIElement element) // Возвращение окна в исходное состояние
+        private void Undo_Animation_Opacity_Element(UIElement element)
         {
+            if (element == null) return;
+            if (element.Opacity == 1) return;
 
-            if (element.Opacity == 1) // Проверка
-            {
-                return;
-            }
+            element.BeginAnimation(UIElement.OpacityProperty, null); // сброс
+            if (element is FrameworkElement fe) fe.Visibility = Visibility.Visible;
+            element.Opacity = 0.0;
 
-            element.Visibility = Visibility.Visible; // Вывод скрытых элементов
-
-            DoubleAnimation animation = new DoubleAnimation // Анимация
+            var animation = new DoubleAnimation
             {
                 From = 0.0,
                 To = 1.0,
-                Duration = new Duration(TimeSpan.FromSeconds(1)) // Таймер анимации
+                Duration = TimeSpan.FromSeconds(1),
+                FillBehavior = FillBehavior.Stop
             };
+            animation.Completed += (_, __) => element.Opacity = 1.0;
             element.BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
@@ -301,14 +316,14 @@ namespace Universcal_screen_control_for_GREMM
 
         private void Active_Marketing_Window(object sender, EventArgs e) // Активация окна маркетинга
         {
-            Animation_Opacity_Element(Universal_Main_Window);
             Undo_Animation_Opacity_Element(The_Marketing_Window);
+            Animation_Opacity_Element(Universal_Main_Window);
         }
 
         private void Avtive_Universal_Screen_Contol(object sender, EventArgs e) // Активация главного окна
         {
-            Animation_Opacity_Element(The_Marketing_Window);
             Undo_Animation_Opacity_Element(Universal_Main_Window);
+            Animation_Opacity_Element(The_Marketing_Window);
         }
 
 
@@ -319,8 +334,18 @@ namespace Universcal_screen_control_for_GREMM
         
         public void Activation_screen_swimming_pool_bt_click (object sender, EventArgs e) // Активировать экран у бассейна
         {
-            switch_Screen = new Switch_Screen(); // Создаем новый экземпляр окна
-            switch_Screen.Show();
+            //switch_Screen = new Switch_Screen(); // Создаем новый экземпляр окна
+            //switch_Screen.Show();
+            if (switch_Screen == null || !switch_Screen.IsLoaded)
+            {
+                switch_Screen = new Switch_Screen();
+                switch_Screen.Closed += (_, __) => switch_Screen = null;
+                switch_Screen.Show();
+            }
+            else
+            {
+                switch_Screen.Activate();
+            }
         }
 
         public void Deactivation_screen_swimming_pool_bt_click(object sender, EventArgs e) // Деактивировать экран у бассейна
@@ -547,5 +572,42 @@ namespace Universcal_screen_control_for_GREMM
         {
 
         }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            // 1) Отписаться и остановить оба таймера
+            TimerSheduler.Tick -= TimerSheduler_Tick;
+            TimerSheduler.Stop();
+
+            TimerCheckTime.Tick -= TimerCheckTime_Tick;
+            TimerCheckTime.Stop();
+
+            // 2) Закрыть дочерние окна (на всякий случай)
+            black_Screen?.Close();
+            black_Screen_djacuzi?.Close();
+            switch_Screen?.Close();
+            switch_Screen_Djacuzi?.Close();
+
+            base.OnClosed(e);
+
+            // Таймеры
+            TimerSheduler.Tick -= TimerSheduler_Tick;
+            TimerSheduler.Stop();
+
+            TimerCheckTime.Tick -= TimerCheckTime_Tick;
+            TimerCheckTime.Stop();
+
+            // Окна-полотна и плееры
+            try { black_Screen?.Close(); } catch { }
+            try { black_Screen_djacuzi?.Close(); } catch { }
+            try { switch_Screen?.Close(); } catch { }
+            try { switch_Screen_Djacuzi?.Close(); } catch { }
+
+            // На всякий случай полностью гасим приложение
+            Application.Current.Shutdown();
+        }
+
     }
 }

@@ -47,8 +47,8 @@ namespace Universcal_screen_control_for_GREMM
                 var firstScreen = screens[1];
 
                 // Устанавливаем размер окна
-                this.Width = 1600;
-                this.Height = 900;
+                this.Width = 640;
+                this.Height = 600;
 
                 // Устанавливаем позицию окна на первом экране
                 this.Left = firstScreen.WorkingArea.Left;
@@ -79,6 +79,18 @@ namespace Universcal_screen_control_for_GREMM
             mediaElement.Source = new Uri(videoPath);
             mediaElement.Play(); // Воспроизводим видео
 
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                mediaElement.Stop();
+                mediaElement.Source = null;
+            }
+            catch { /* ignore */ }
+
+            base.OnClosing(e);
         }
 
 

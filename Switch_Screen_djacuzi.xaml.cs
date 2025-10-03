@@ -80,6 +80,18 @@ namespace Universcal_screen_control_for_GREMM
 
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                mediaElement.Stop();
+                mediaElement.Source = null;
+            }
+            catch { /* ignore */ }
+
+            base.OnClosing(e);
+        }
+
     }
 }
 
