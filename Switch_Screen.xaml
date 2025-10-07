@@ -11,12 +11,12 @@
         Opacity="1"
         Topmost="False"
         Background="Black"
-        Title="Switch_Screen" Height="600" Width="640">
+        Title="Switch_Screen" Height="640" Width="600">
     <Grid>
         <DockPanel>
             
             <StackPanel x:Name="MediaElement640600" Opacity="1">
-                <MediaElement x:Name="mediaElement" Width="640" Height="600" UnloadedBehavior="Manual" Stretch="Uniform" Volume="1.0" LoadedBehavior="Manual"/>
+                <MediaElement x:Name="mediaElement" Width="600" Height="640" UnloadedBehavior="Manual" Stretch="Uniform" Volume="1.0" LoadedBehavior="Manual"/>
                 <Rectangle x:Name="DragMove_bt" Height="30" Fill="LightGray" Margin="0,-15,0,0" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" Width="141" HorizontalAlignment="Center"/>
                 <!--<Button>Экран бассейна 1600x900</Button>
                 <Button Click="MessegeBoxShow_Active" >Экран у бассейна 1600x900 (реальное 1600x840)</Button>
