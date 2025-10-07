@@ -73,7 +73,7 @@
             </StackPanel>
         </DockPanel>
 
-        <DockPanel Grid.Row="0" x:Name="The_Marketing_Window" Opacity="1" Visibility="Hidden" >
+        <DockPanel Grid.Row="0" x:Name="The_Marketing_Window" Opacity="0" Visibility="Hidden" >
             <GroupBox Header="Окно маркетинга" >
                 <StackPanel>
                     <Button>Вывод окна маркетинга</Button>
@@ -85,6 +85,9 @@
                             <Button Click="Deactivation_drag_button_swimming_pool_bt_click">Деактивировать кнопку навигации у экрана бассейна</Button>
                             <Button Click="Smoothly_hide_the_window_swimming_pool_bt_click">Плавно скрыть окно</Button>
                             <Button Click="Smoothly_open_the_window_swimming_pool_bt_click" >Плавно раскрыть окно</Button>
+                            <Button Click="ActiveFocus_switchScreen_bt_click" >Активировать фокус окна бассейна</Button>
+                            <Button Click="UnFocusScreens_bt_click" >Разфокусировать окно бассейна</Button>
+                            <Button Click="Show_today_schedule_bt_click">Возобновить работу расписания</Button>
                             <Button Click="Active_screen_switch_test_promt1" >Активировать тестовый промт 1</Button>
                             <Button Click="Active_screen_switch_test_promt2" >Активировать тестовый промт 2</Button>
                             <Button Click="Active_screen_switch_Zel1" >Зелинский 1</Button>
