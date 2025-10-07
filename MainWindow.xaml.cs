@@ -22,8 +22,8 @@ namespace Universcal_screen_control_for_GREMM
         public Switch_Screen_djacuzi switch_Screen_Djacuzi = new Switch_Screen_djacuzi();// Экран джакузи как switch_Screen_Djacuzi
 
         // период и длительность
-        public static readonly TimeSpan PromoPeriod = TimeSpan.FromMinutes(2); // Таймер задержки перед воспроизведением промо
-        public static readonly TimeSpan PromoDuration = TimeSpan.FromMinutes(1); // Таймер воспроизведения промо
+        public static readonly TimeSpan PromoPeriod = TimeSpan.FromMinutes(59); // Таймер задержки перед воспроизведением промо
+        public static readonly TimeSpan PromoDuration = TimeSpan.FromMinutes(3); // Таймер воспроизведения промо
 
         public DispatcherTimer _promoStartTimer; // Таймер промо СТАРТ
         public DispatcherTimer _promoStopTimer; // Таймер промо СТОП
@@ -52,7 +52,6 @@ namespace Universcal_screen_control_for_GREMM
             OpenBlackScreen_djacuzi(); // Скрытие всех окон перед открытием (заглушка)
             DisplayCurrentDateAndDay(); // Проверка корректности даты
             InitializeTimers(); // Инициализация таймером (двух)
-            ActiveFocus_switchScreen(); // Фокус окна бассейна
         }
 
         private void InitializeTimers() // Запуск двух таймеров
@@ -240,8 +239,8 @@ namespace Universcal_screen_control_for_GREMM
         {
             // первый старт — через дельту до ближайшего кратного 10 минут
             var now = DateTime.Now;
-            var minutesToNext = 2 - (now.Minute % 2);
-            if (minutesToNext == 2) minutesToNext = 0;
+            var minutesToNext = 59 - (now.Minute % 59);
+            if (minutesToNext == 59) minutesToNext = 0;
             var initialDelay = new TimeSpan(0, minutesToNext, 0) - TimeSpan.FromSeconds(now.Second);
             if (initialDelay < TimeSpan.Zero) initialDelay = TimeSpan.Zero;
 
@@ -254,7 +253,7 @@ namespace Universcal_screen_control_for_GREMM
 
                 // затем регулярный каждые 10 минут
                 _promoStartTimer = new DispatcherTimer { Interval = PromoPeriod };
-                _promoStartTimer.Tick += (s1, e1) => StartScheduledPromo();
+                _promoStartTimer.Tick += (s3, e3) => StartScheduledPromo();
                 _promoStartTimer.Start();
             };
             first.Start();
@@ -409,6 +408,10 @@ namespace Universcal_screen_control_for_GREMM
             {
                 switch_Screen.Activate();
             }
+
+            Deactivation_drag_button_swimming_pool_bt_click(null, null); // Деактивировать кнопку навигации у экрана бассейна
+            ActiveFocus_switchScreen();
+
         }
 
         public void Smoothly_hide_the_window_swimming_pool_bt_click(object sender, EventArgs e) // Скрытие окна бассейн
