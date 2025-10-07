@@ -8,7 +8,7 @@
                         WindowStyle="None"
         AllowsTransparency="True"
         Opacity="1"
-        Background="Purple"
+        Background="Black"
         Title="Switch_Screen" Height="600" Width="640">
     <Grid>
         <DockPanel>

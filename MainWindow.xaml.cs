@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Diagnostics;
 using System.Windows.Media.Animation;
+using System.Threading.Tasks;
 //using System.Windows.Forms;
 
 namespace Universcal_screen_control_for_GREMM
@@ -18,6 +19,14 @@ namespace Universcal_screen_control_for_GREMM
         public Black_screen_djacuzi black_Screen_djacuzi = new Black_screen_djacuzi();
         public Switch_Screen switch_Screen = new Switch_Screen();
         public Switch_Screen_djacuzi switch_Screen_Djacuzi = new Switch_Screen_djacuzi();
+        // период и длительность
+        public static readonly TimeSpan PromoPeriod = TimeSpan.FromMinutes(2);
+        public static readonly TimeSpan PromoDuration = TimeSpan.FromMinutes(1);
+
+        public DispatcherTimer _promoStartTimer;
+        public DispatcherTimer _promoStopTimer;
+
+        public bool _promoRunning; // флаг: сейчас идёт запланированный показ
 
         private const int maxGarbage = 99999;
 
@@ -52,6 +61,7 @@ namespace Universcal_screen_control_for_GREMM
             TimerCheckTime.Interval = TimeSpan.FromSeconds(1);
             TimerCheckTime.Tick += TimerCheckTime_Tick;
             TimerCheckTime.Start();
+            SetupPromoTimersAligned(); // если нужно «ровно :00, :10, :20 ...»
         }
 
         private void TimerSheduler_Tick(object sender, EventArgs e) // Тик на расписание
@@ -97,6 +107,10 @@ namespace Universcal_screen_control_for_GREMM
             TimerCheckTime.Tick -= TimerCheckTime_Tick;
             TimerCheckTime.Stop();
 
+            // расписание роликов:
+            if (_promoStartTimer != null) { _promoStartTimer.Stop(); _promoStartTimer = null; }
+            if (_promoStopTimer != null) { _promoStopTimer.Stop(); _promoStopTimer = null; }
+
             // Окна-полотна и плееры
             try { black_Screen?.Close(); } catch { }
             try { black_Screen_djacuzi?.Close(); } catch { }
@@ -141,7 +155,8 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Mon = false;
                 isActive_Sun = true;
-               // OpenFile("C:\\tasks\\Mon.bat");
+                switch_Screen.PlayVideo(@"C:\pp\Mon.mp4");
+                // OpenFile("C:\\tasks\\Mon.bat");
                 //MessageBox.Show("Понедельник");
 
             }
@@ -150,7 +165,8 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Tue = false;
                 isActive_Mon = true;
-               // OpenFile("C:\\tasks\\Tue.bat");
+                switch_Screen.PlayVideo(@"C:\pp\Tue.mp4");
+                // OpenFile("C:\\tasks\\Tue.bat");
                 //MessageBox.Show("Вторник");
 
             }
@@ -159,6 +175,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Wed = false;
                 isActive_Tue = true;
+                switch_Screen.PlayVideo(@"C:\pp\Wed.mp4");
                 //OpenFile("C:\\tasks\\Wed.bat");
                 //MessageBox.Show("Среда");
 
@@ -168,6 +185,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Thu = false;
                 isActive_Wed = true;
+                switch_Screen.PlayVideo(@"C:\pp\Thu.mp4");
                 //OpenFile("C:\\tasks\\Thu.bat");
                 //MessageBox.Show("Четверг");
 
@@ -177,7 +195,8 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Fri = false;
                 isActive_Thu = true;
-               // OpenFile("C:\\tasks\\Fri.bat");
+                switch_Screen.PlayVideo(@"C:\pp\Fri.mp4");
+                // OpenFile("C:\\tasks\\Fri.bat");
                 //MessageBox.Show("Пятница");
 
             }
@@ -186,6 +205,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Sat = false;
                 isActive_Fri = true;
+                switch_Screen.PlayVideo(@"C:\pp\Sat.mp4");
                 //OpenFile("C:\\tasks\\Sat.bat");
                 //MessageBox.Show("Суббота");
 
@@ -195,6 +215,7 @@ namespace Universcal_screen_control_for_GREMM
             {
                 isActive_Sun = false;
                 isActive_Sat = true;
+                switch_Screen.PlayVideo(@"C:\pp\Sun.mp4");
                 //OpenFile("C:\\tasks\\Sun.bat");
                 //MessageBox.Show("Воскресенье");
 
@@ -203,29 +224,51 @@ namespace Universcal_screen_control_for_GREMM
 
         public void Activate_Deactivate_black_screen() // Цикл активации, деактивации полотна
         {
-            if (TimeTextBlock.Text == "8:30")
+            if (TimeTextBlock.Text == "10:30")
             {
-                black_Screen.Black_screen_CheckBox_Unchecked(null, null);
+                //Activation_screen_swimming_pool_bt_click(this, EventArgs.Empty);
+
+                if (switch_Screen == null || !switch_Screen.IsLoaded)
+                {
+                    switch_Screen = new Switch_Screen();
+                    switch_Screen.Closed += (_, __) => switch_Screen = null;
+                    switch_Screen.Show();
+                }
+                else
+                {
+                    switch_Screen.Activate();
+                }
+
+                //Smoothly_hide_the_window_swimming_pool_bt_click(this, EventArgs.Empty);
+                //Deactivation_drag_button_swimming_pool_bt_click(this, EventArgs.Empty);
+                //Smoothly_open_the_window_swimming_pool_bt_click(this, EventArgs.Empty);
+                //black_Screen.Black_screen_CheckBox_Unchecked(null, null);
                 //OpenFile("C:\\tasks_a\\StopBlackScript.bat");
             }
 
             if (TimeTextBlock.Text == "8:31")
             {
-                black_Screen_djacuzi.Black_screen_CheckBox_Unchecked_second(null, null);
+                //black_Screen_djacuzi.Black_screen_CheckBox_Unchecked_second(null, null);
                 //OpenFile("C:\\tasks_a\\StopBlackScript.bat");
 
             }
 
-            if (TimeTextBlock.Text == "23:40")
+            if (TimeTextBlock.Text == "22:30")
             {
-                black_Screen.Black_screen_CheckBox_Checked(null, null);
+                //black_Screen.Black_screen_CheckBox_Checked(null, null);
                 //OpenFile("C:\\tasks_a\\StartBlackScript.bat");
+                switch_Screen.Close();
+                switch_Screen_Djacuzi.Close();
+                try { black_Screen?.Close(); } catch { }
+                try { black_Screen_djacuzi?.Close(); } catch { }
+                try { switch_Screen?.Close(); } catch { }
+                try { switch_Screen_Djacuzi?.Close(); } catch { }
 
             }
 
             if (TimeTextBlock.Text == "23:41")
             {
-                black_Screen_djacuzi.Black_screen_CheckBox_Checked_second(null, null);
+                //black_Screen_djacuzi.Black_screen_CheckBox_Checked_second(null, null);
                 //OpenFile("C:\\tasks_a\\StartBlackScript.bat");
 
             }
@@ -247,7 +290,127 @@ namespace Universcal_screen_control_for_GREMM
             }
         }
 
+        // Если хотите, чтобы срабатывания были ровно в :00, :10, :20 и т.п.
+        private void SetupPromoTimersAligned()
+        {
+            // первый старт — через дельту до ближайшего кратного 10 минут
+            var now = DateTime.Now;
+            var minutesToNext = 2 - (now.Minute % 2);
+            if (minutesToNext == 2) minutesToNext = 0;
+            var initialDelay = new TimeSpan(0, minutesToNext, 0) - TimeSpan.FromSeconds(now.Second);
+            if (initialDelay < TimeSpan.Zero) initialDelay = TimeSpan.Zero;
 
+            // одноразовый таймер на первый запуск
+            var first = new DispatcherTimer { Interval = initialDelay };
+            first.Tick += (s, e) =>
+            {
+                (s as DispatcherTimer).Stop();
+                StartScheduledPromo();
+
+                // затем регулярный каждые 10 минут
+                _promoStartTimer = new DispatcherTimer { Interval = PromoPeriod };
+                _promoStartTimer.Tick += (s1, e1) => StartScheduledPromo();
+                _promoStartTimer.Start();
+            };
+            first.Start();
+        }
+
+        // Базовый вариант без выравнивания:
+        // private void SetupPromoTimersSimple()
+        // {
+        //     _promoStartTimer = new DispatcherTimer { Interval = PromoPeriod };
+        //     _promoStartTimer.Tick += (s, e) => StartScheduledPromo();
+        //     _promoStartTimer.Start();
+        // }
+
+        //private async void StartScheduledPromo() // тестовая функция
+        //{
+        //    if (_promoRunning) return;
+        //    _promoRunning = true;
+
+        //    if (switch_Screen == null || !switch_Screen.IsLoaded)
+        //    {
+        //        switch_Screen = new Switch_Screen();
+        //        switch_Screen.Closed += (_, __) => switch_Screen = null;
+        //        switch_Screen.Show();
+
+        //        // дождаться первой отрисовки окна
+        //        var tcs = new TaskCompletionSource<bool>();
+        //        EventHandler handler = null;
+        //        handler = (s, e) => { switch_Screen.ContentRendered -= handler; tcs.TrySetResult(true); };
+        //        switch_Screen.ContentRendered += handler;
+        //        await tcs.Task; // <--- здесь окно уже «видимое»
+        //    }
+        //    else
+        //    {
+        //        // если окно уже показывалось раньше, просто пропустим ожидание
+        //        await switch_Screen.Dispatcher.InvokeAsync(() => { }, System.Windows.Threading.DispatcherPriority.ApplicationIdle);
+        //    }
+
+        //    Smoothly_open_the_window_swimming_pool_active();
+
+        //    // обновляем день/дату и запускаем расписание
+        //    DisplayCurrentDateAndDay();
+        //    WeekCycles_click(); // внутри него у тебя switch_Screen.PlayVideo(...)
+
+        //    // стоп через 2 минуты
+        //    _promoStopTimer?.Stop();
+        //    _promoStopTimer = new DispatcherTimer { Interval = PromoDuration };
+        //    _promoStopTimer.Tick += (s, e) => StopScheduledPromo();
+        //    _promoStopTimer.Start();
+        //}
+
+
+        private void StartScheduledPromo()
+        {
+            if (_promoRunning) return; // уже идёт — не дублируем
+
+            // гарантируем, что окно-плеер существует и показано
+            if (switch_Screen == null || !switch_Screen.IsLoaded)
+            {
+                switch_Screen = new Switch_Screen();
+                switch_Screen.Closed += (_, __) => switch_Screen = null;
+                switch_Screen.Show();
+            }
+
+            Smoothly_open_the_window_swimming_pool_active();
+            TimerSheduler_Tick(this, EventArgs.Empty);
+            // ОБНОВИТЬ дату/время и вызвать расписание по дням
+            //DisplayCurrentDateAndDay();
+            //WeekCycles_click();
+            // запустить нужный ролик/сценарий
+            // это ваш существующий обработчик: Active_screen_switch_test_promt1(...)
+            // Можно вызвать напрямую:
+            //Active_screen_switch_test_promt1Active_screen_switch_test_promt1(this, EventArgs.Empty);
+
+            _promoRunning = true;
+
+            // запланировать остановку через 2 минуты (одноразово)
+            _promoStopTimer?.Stop();
+            _promoStopTimer = new DispatcherTimer { Interval = PromoDuration };
+            _promoStopTimer.Tick += (s, e) => StopScheduledPromo();
+            _promoStopTimer.Start();
+        }
+
+        private void StopScheduledPromo()
+        {
+            _promoStopTimer?.Stop();
+
+            // Вызвать вашу функцию отключения полотна
+            // Если это метод MainWindow:
+            // switch_screen_polotno_off();
+            Smoothly_hide_the_window_swimming_pool_active();
+          
+
+            // Если это метод окна-плеера:
+            // switch_Screen?.switch_screen_polotno_off();
+
+            // Если её нет — примерный «аналог»:
+            // switch_Screen?.StopVideoAndHideOverlay(); // замените на ваш метод
+            // либо, если видео играет через MediaElement внутри switch_Screen — внутри того окна остановите MediaElement.
+
+            _promoRunning = false;
+        }
 
 
         ///////////////////// Открытие окон
@@ -269,7 +432,7 @@ namespace Universcal_screen_control_for_GREMM
         ///////////////////// Анимация элементов
 
 
-        private void Animation_Opacity_Element(UIElement element)
+        private void Animation_Opacity_Element(UIElement element) // Включение анимации затемнения
         {
             if (element == null) return;
             if (element.Opacity == 0) return;
@@ -292,7 +455,7 @@ namespace Universcal_screen_control_for_GREMM
             element.BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
-        private void Undo_Animation_Opacity_Element(UIElement element)
+        private void Undo_Animation_Opacity_Element(UIElement element) // Выключение анимации затемления
         {
             if (element == null) return;
             if (element.Opacity == 1) return;
@@ -354,10 +517,20 @@ namespace Universcal_screen_control_for_GREMM
 
         }
 
+        public void Smoothly_hide_the_window_swimming_pool_active()
+        {
+            Animation_Opacity_Element(switch_Screen);
+        }
+
         public void Smoothly_open_the_window_swimming_pool_bt_click(Object sender, EventArgs e) // Раскрытие окна бассейн
         {
             Undo_Animation_Opacity_Element(switch_Screen);
 
+        }
+
+        public void Smoothly_open_the_window_swimming_pool_active()
+        {
+            Undo_Animation_Opacity_Element(switch_Screen);
         }
 
         public void Activation_drag_button_swimming_pool_bt_click(object sender, EventArgs e) // Вернуть кнеопку навигации
@@ -377,9 +550,15 @@ namespace Universcal_screen_control_for_GREMM
             //    switch_Screen = null; // Устанавливаем switch_Screen в null после закрытия
             //}
             switch_Screen.Close();
+            switch_Screen_Djacuzi.Close();
+            try { black_Screen?.Close(); } catch { }
+            try { black_Screen_djacuzi?.Close(); } catch { }
+            try { switch_Screen?.Close(); } catch { }
+            try { switch_Screen_Djacuzi?.Close(); } catch { }
+
         }
 
-                // Активация рекламных роликов
+        // Активация рекламных роликов
         public void Active_screen_switch_test_promt1(object sender, EventArgs e) // Тестовый
         {
             switch_Screen.PlayVideo(@"C:\pp\Tue.mp4");
@@ -604,12 +783,11 @@ namespace Universcal_screen_control_for_GREMM
 
             TimerCheckTime.Tick -= TimerCheckTime_Tick;
             TimerCheckTime.Stop();
-
-            // 2) Закрыть дочерние окна (на всякий случай)
-            black_Screen?.Close();
-            black_Screen_djacuzi?.Close();
-            switch_Screen?.Close();
-            switch_Screen_Djacuzi?.Close();
+            black_Screen.Close();
+            black_Screen_djacuzi.Close();
+            switch_Screen.Close();
+            switch_Screen_Djacuzi.Close();
+            this.Close();
 
             base.OnClosed(e);
 
@@ -619,6 +797,10 @@ namespace Universcal_screen_control_for_GREMM
 
             TimerCheckTime.Tick -= TimerCheckTime_Tick;
             TimerCheckTime.Stop();
+
+            // расписание роликов:
+            if (_promoStartTimer != null) { _promoStartTimer.Stop(); _promoStartTimer = null; }
+            if (_promoStopTimer != null) { _promoStopTimer.Stop(); _promoStopTimer = null; }
 
             // Окна-полотна и плееры
             try { black_Screen?.Close(); } catch { }
