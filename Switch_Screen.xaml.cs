@@ -44,17 +44,39 @@ namespace Universcal_screen_control_for_GREMM
             if (screens.Length > 1)
             {
                 // Получаем первый экран
-                var firstScreen = screens[1];
+                var firstScreen = screens[0];
 
                 // Устанавливаем размер окна
                 this.Width = 640;
                 this.Height = 600;
 
                 // Устанавливаем позицию окна на первом экране
-                //this.Left = firstScreen.WorkingArea.Left;
-                //this.Top = firstScreen.WorkingArea.Top;
+                this.Left = firstScreen.WorkingArea.Left;
+                this.Top = firstScreen.WorkingArea.Top;
             }
         }
+
+
+        //private void MoveWindowToFirstScreen()  // Перемещение экрана
+        //{
+        //    // Получаем все доступные экраны
+        //    var screens = Screen.AllScreens;
+
+        //    // Проверяем, есть ли хотя бы один экран
+        //    if (screens.Length > 1)
+        //    {
+        //        // Получаем первый экран
+        //        var firstScreen = screens[1];
+
+        //        // Устанавливаем размер окна
+        //        this.Width = 640;
+        //        this.Height = 600;
+
+        //        // Устанавливаем позицию окна на первом экране
+        //        this.Left = firstScreen.WorkingArea.Left;
+        //        this.Top = firstScreen.WorkingArea.Top;
+        //    }
+        //}
 
         public void PlayVideo(string path) // Включение видео-рекламы
         {

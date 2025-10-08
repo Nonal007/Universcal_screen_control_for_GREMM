@@ -16,7 +16,6 @@
         <DockPanel>
             
             <StackPanel x:Name="MediaElement640600" Opacity="1">
-                <!--<MediaElement x:Name="mediaElement" Width="640" Height="600" UnloadedBehavior="Manual" Stretch="Uniform" Volume="1.0" LoadedBehavior="Manual"/>-->
                 <MediaElement x:Name="mediaElement" Width="640" Height="600" Stretch="Uniform" Volume="1.0" UnloadedBehavior="Manual" LoadedBehavior="Manual"/>
 
                 <Rectangle x:Name="DragMove_bt" Height="30" Fill="LightGray" Margin="0,-15,0,0" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" Width="141" HorizontalAlignment="Center"/>

@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\switch_screen.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:switch_screen.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|c:\\users\\it-d\\documents\\github\\universcal_screen_control_for_gremm\\switch_screen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:switch_screen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\switch_screen.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:switch_screen.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\switch_screen_djacuzi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:switch_screen_djacuzi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\switch_screen_djacuzi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:switch_screen_djacuzi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,16 +27,8 @@
       "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\switch_screen_djacuzi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:switch_screen_djacuzi.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\switch_screen_djacuzi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DEBA9DF3-583A-4A6F-BE87-C07EDD3756E1}|Universcal_screen_control_for_GREMM.csproj|solutionrelative:switch_screen_djacuzi.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Switch_Screen.xaml",
               "DocumentMoniker": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\Switch_Screen.xaml",
               "RelativeDocumentMoniker": "Switch_Screen.xaml",
@@ -54,20 +54,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Switch_Screen.xaml.cs",
               "DocumentMoniker": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\Switch_Screen.xaml.cs",
               "RelativeDocumentMoniker": "Switch_Screen.xaml.cs",
               "ToolTip": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\Switch_Screen.xaml.cs",
               "RelativeToolTip": "Switch_Screen.xaml.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwDIAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAQwCsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-28T09:02:15.508Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -79,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -90,30 +90,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Switch_Screen_djacuzi.xaml",
               "DocumentMoniker": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\Switch_Screen_djacuzi.xaml",
               "RelativeDocumentMoniker": "Switch_Screen_djacuzi.xaml",
               "ToolTip": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\Switch_Screen_djacuzi.xaml",
               "RelativeToolTip": "Switch_Screen_djacuzi.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-16T08:26:40.61Z"
+              "WhenOpened": "2025-01-16T08:26:40.61Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Switch_Screen_djacuzi.xaml.cs",
               "DocumentMoniker": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\Switch_Screen_djacuzi.xaml.cs",
               "RelativeDocumentMoniker": "Switch_Screen_djacuzi.xaml.cs",
               "ToolTip": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\Switch_Screen_djacuzi.xaml.cs",
               "RelativeToolTip": "Switch_Screen_djacuzi.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAFwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-16T08:27:21.362Z"
+              "WhenOpened": "2025-01-16T08:27:21.362Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\IT-D\\Documents\\GitHub\\Universcal_screen_control_for_GREMM\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
