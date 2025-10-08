@@ -47,12 +47,12 @@ namespace Universcal_screen_control_for_GREMM
                 var firstScreen = screens[1];
 
                 // Устанавливаем размер окна
-                this.Width = 600;
-                this.Height = 640;
+                this.Width = 640;
+                this.Height = 600;
 
                 // Устанавливаем позицию окна на первом экране
-                this.Left = firstScreen.WorkingArea.Left;
-                this.Top = firstScreen.WorkingArea.Top;
+                //this.Left = firstScreen.WorkingArea.Left;
+                //this.Top = firstScreen.WorkingArea.Top;
             }
         }
 
